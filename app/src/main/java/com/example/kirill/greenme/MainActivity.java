@@ -110,12 +110,12 @@ public class MainActivity extends AppCompatActivity
         }
 
         // request permissions
-//        if (android.os.Build.VERSION.SDK_INT >= 23){
-//            ActivityCompat.requestPermissions(this,
-//                    RUNTIME_PERMISSIONS,
-//                    REQUEST_CODE_ASK_PERMISSIONS);
-//
-//        }
+        if (android.os.Build.VERSION.SDK_INT >= 23){
+            ActivityCompat.requestPermissions(this,
+                    RUNTIME_PERMISSIONS,
+                    REQUEST_CODE_ASK_PERMISSIONS);
+
+        }
 
     }
 
@@ -125,9 +125,9 @@ public class MainActivity extends AppCompatActivity
      * !!! Please note: the HERE SDK requires all permissions defined above to operate properly. !!!
      */
     void createMapFragmentView() {
-        Toast.makeText(this, "RUN", Toast.LENGTH_LONG);
+        //Toast.makeText(this, "RUN", Toast.LENGTH_LONG);
         m_mapFragmentView = new MapFragmentView(this);
-        Toast.makeText(this, "END", Toast.LENGTH_LONG);
+        //Toast.makeText(this, "END", Toast.LENGTH_LONG);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
