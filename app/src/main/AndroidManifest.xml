@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kirill.greenme">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,23 +27,23 @@
             </intent-filter>
         </activity>
         <meta-data
-            android:name="com.here.android.maps.appid"
-            android:value="{YOUR_APP_ID}" />
+            android:name="com.example.kirill.greenme.appid"
+            android:value="Su5yCpAbtAYfS5ekJpRu" />
         <meta-data
-            android:name="com.here.android.maps.apptoken"
-            android:value="{YOUR_APP_CODE}" />
+            android:name="com.example.kirill.greenme.apptoken"
+            android:value="kG-Ce9qrmSWrDngklibYeA" />
         <meta-data
-            android:name="com.here.android.maps.license.key"
-            android:value="{YOUR_LICENSE_KEY}" />
+            android:name="com.example.kirill.greenme.license.key"
+            android:value="ciDVKkpqPSuQqwbdTbkrgaJe7yhd/vW2RqlHrt1FsfxjZ/XBgodOPqvEQGhPYI85h3K+bYPXOuNR8Kh391sWCM2jOVEei/Tn6xXI9JTuzSE189422sTMQk7js+ME9Mnw4B0YJwGR3otxUfpBfMOrY/7f5KAMG7w7jJ91vTQTg9L0hzSMzn5ALu6HLNnRzXJtH5YuNreKNO1weSrOCPcGxGf+WizBrLiIYkGtmEcTtz0sdSRulr7+CaafiTlpH+mWXnxWCww4db64QCDIQbZbKMmbdmSHfUmJcyaHwnAJ73nrc3Yx+CNb0MyiaMEqCpXRNaVagEl4NPKexBv0g/8Hle2MRFE1NuUSaRVJthjmFC6jLFCjd0YLtBkTaMSYXJ8pD4CeAyx+7jPcWQ22BWg6y9TkuPwyR4JK1p8Nk2O5adXpIYQ7o7CSUVitDuE/mI1qp5cUgSamV5FNm3FCnaahA3Hoz68EnVUDJMr2Upp0zJSWwSV3nfcrwmxTJwCpWEP3pdAZ4ViuccnRKaL7gQHrDapaNUGIBk10IAC6voZoXduNSdAquCJ8SzLa2nAbfM4w+7JhyN0G26364+SuBG2c4C4sZTdQ/XA8qKc05r99AG51aoFdqioXvIquG1EeT9SpsMrL5RB/BbLA3bEUI81V1g80haJJa54OAPNCPrV29Vc=" />
 
         <!--Developers should always provide custom values for each of {YOUR_LABEL_NAME} and {YOUR_INTENT_NAME}.
         Do not reuse HERE SDK defaults.-->
         <meta-data
             android:name="INTENT_NAME"
-            android:value="{YOUR_INTENT_NAME}" />
+            android:value="MAPINTENT" />
         <service
             android:name="com.here.android.mpa.service.MapService"
-            android:label="{YOUR_LABEL_NAME}"
+            android:label="MAPSERVISE"
             android:exported="false">
             <intent-filter>
                 <action android:name="{YOUR_INTENT_NAME}"></action>

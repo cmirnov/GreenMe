@@ -1,8 +1,20 @@
 package com.example.kirill.greenme;
 
 import android.app.Activity;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.widget.Toast;
 
-import java.util.Map;
+import com.here.android.mpa.common.OnEngineInitListener;
+import com.here.android.mpa.mapping.Map;
+import com.here.android.mpa.mapping.MapFragment;
+import com.nokia.maps.restrouting.GeoCoordinate;
+
+import java.io.File;
+//import java.util.Map;
 
 public class MapFragmentView {
     private MapFragment m_mapFragment;
@@ -61,7 +73,7 @@ public class MapFragmentView {
                              * Please refer to the user guide for how to get the real-time location.
                              */
 
-                            m_map.setCenter(new GeoCoordinate(49.258576, -123.008268), Map.Animation.NONE);
+                           // m_map.setCenter(new GeoCoordinate(49.258576, -123.008268), Map.Animation.NONE);
                         } else {
                             Toast.makeText(m_activity,
                                     "ERROR: Cannot initialize Map with error " + error,
