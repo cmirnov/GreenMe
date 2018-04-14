@@ -116,7 +116,7 @@ public class MyOnGestureListener implements MapGesture.OnGestureListener {
 
         }
         if (s.equals("plant_flower")) {
-            Intent intent = new Intent(context, FlowerAnimation.class);
+            Intent intent = new Intent(context, FlowerGrowing.class);
             context.startActivity(intent);
         }
         if (s.equals("water_tree")) {

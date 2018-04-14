@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.support.annotation.MainThread;
 import android.support.v7.app.AppCompatActivity;
@@ -123,6 +124,11 @@ public class FlowerAnimation extends AppCompatActivity {
             // Load Bob from his .png file
             bitmapBob = BitmapFactory.decodeResource(this.getResources(), R.drawable.fl1);
             BitmapFactory bf = new BitmapFactory();
+            Point screenSize = new Point();
+            getWindowManager().getDefaultDisplay().getSize(screenSize);
+            frameWidth = screenSize.x;
+            frameHeight = screenSize.y;
+            Log.d(String.valueOf(frameWidth), String.valueOf(frameHeight));
             frames  = new Bitmap[]{Bitmap.createScaledBitmap(bf.decodeResource(this.getResources(), R.drawable.fl8),
                     frameWidth * frameCount,
                     frameHeight,
@@ -156,6 +162,17 @@ public class FlowerAnimation extends AppCompatActivity {
                             frameHeight,
                             false)
             };
+
+//            frames  = new Bitmap[]{bf.decodeResource(this.getResources(), R.drawable.fl8),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl8),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl7),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl6),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl5),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl4),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl3),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl2),
+//                    bf.decodeResource(this.getResources(), R.drawable.fl1),
+//            };
             // Scale the bitmap to the correct size
             // We need to do this because Android automatically
             // scales bitmaps based on screen densityx
@@ -210,17 +227,12 @@ public class FlowerAnimation extends AppCompatActivity {
         public void getCurrentFrame(){
 
             long time  = System.currentTimeMillis();
-            if(isMoving) {// Only animate if bob is moving
+//            if(isMoving) {// Only animate if bob is moving
                 if ( time > lastFrameChangeTime + frameLengthInMilliseconds) {
                     lastFrameChangeTime = time;
-                    currentFrame++;
                     curFr++;
-                    if (currentFrame >= frameCount) {
-
-                        currentFrame = 0;
-                    }
                 }
-            }
+//            }
             //update the left and right values of the source of
             //the next frame on the spritesheet
             frameToDraw.left = currentFrame * frameWidth;
@@ -242,11 +254,11 @@ public class FlowerAnimation extends AppCompatActivity {
                 // Choose the brush color for drawing
                 paint.setColor(Color.argb(255,  249, 129, 0));
 
-                // Make the text a bit bigger
-                paint.setTextSize(45);
-
-                // Display the current fps on the screen
-                canvas.drawText("FPS:" + fps, 20, 40, paint);
+//                // Make the text a bit bigger
+//                paint.setTextSize(45);
+//
+//                // Display the current fps on the screen
+//                canvas.drawText("FPS:" + fps, 20, 40, paint);
 
                 // Draw bob at bobXPosition, 200 pixels
                 //canvas.drawBitmap(bitmapBob, bobXPosition, 200, paint);
@@ -257,10 +269,8 @@ public class FlowerAnimation extends AppCompatActivity {
                         frameHeight);
 
                 getCurrentFrame();
-
                 canvas.drawBitmap(frames[curFr % 8],
-                        frameToDraw,
-                        whereToDraw, paint);
+                        0,0, paint);
 
                 // Draw everything to the screen
                 ourHolder.unlockCanvasAndPost(canvas);
