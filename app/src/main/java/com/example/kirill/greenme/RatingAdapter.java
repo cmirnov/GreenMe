@@ -2,6 +2,9 @@ package com.example.kirill.greenme;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -30,6 +33,7 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.RatingAdap
             mScore = view.findViewById(R.id.scores);
             mUser = view.findViewById(R.id.user);
 
+
            // view.setOnClickListener(this);
         }
 
@@ -56,6 +60,22 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.RatingAdap
         holder.mName.setText(dataName[position]);
         holder.mScore.setText(dataScore[position]);
         holder.mPosition.setText(dataPosition[position]);
+
+        if (position == 0) {
+            holder.mUser.setImageResource(R.drawable.face1);
+        }
+        if (position == 1) {
+            holder.mUser.setImageResource(R.drawable.face2);
+        }
+        if (position == 2) {
+            holder.mUser.setImageResource(R.drawable.face2);
+        }
+        if (position == 3) {
+            holder.mUser.setImageResource(R.drawable.face3);
+        }
+        if (position == 4) {
+            holder.mUser.setImageResource(R.drawable.face1);
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
