@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.List;
 //import java.util.Map;
 
-public class MapFragmentView implements MapGesture.OnGestureListener {
+public class MapFragmentView {
     private MapFragment m_mapFragment;
     private Activity m_activity;
     private Map m_map;
@@ -34,94 +34,7 @@ public class MapFragmentView implements MapGesture.OnGestureListener {
         initMapFragment();
         addPoints();
     }
-    @Override
-    public void onPanStart() {
 
-    }
-
-    @Override
-    public void onPanEnd() {
-
-    }
-
-    @Override
-    public void onMultiFingerManipulationStart() {
-
-    }
-
-    @Override
-    public void onMultiFingerManipulationEnd() {
-
-    }
-
-    @Override
-    public boolean onMapObjectsSelected(List<ViewObject> list) {
-        for (ViewObject viewObject : list) {
-            if (viewObject.getBaseType() == ViewObject.Type.USER_OBJECT) {
-                MapObject mapObject = (MapObject) viewObject;
-
-                if (mapObject.getType() == MapObject.Type.MARKER) {
-
-                    MapMarker window_marker = ((MapMarker) mapObject);
-
-                    Log.v("DONE", "DONE");
-
-                    return false;
-                }
-            }
-        }
-        return false;
-    }
-
-    @Override
-    public boolean onTapEvent(PointF pointF) {
-        return false;
-    }
-
-    @Override
-    public boolean onDoubleTapEvent(PointF pointF) {
-        return false;
-    }
-
-    @Override
-    public void onPinchLocked() {
-
-    }
-
-    @Override
-    public boolean onPinchZoomEvent(float v, PointF pointF) {
-        return false;
-    }
-
-    @Override
-    public void onRotateLocked() {
-
-    }
-
-    @Override
-    public boolean onRotateEvent(float v) {
-        return false;
-    }
-
-    @Override
-    public boolean onTiltEvent(float v) {
-        return false;
-    }
-
-    @Override
-    public boolean onLongPressEvent(PointF pointF) {
-        return false;
-    }
-
-    @Override
-    public void onLongPressRelease() {
-
-    }
-
-    @Override
-    public boolean onTwoFingerTapEvent(PointF pointF) {
-        return false;
-    }
 
     private void initMapFragment() {
         /* Locate the mapFragment UI element */
@@ -134,6 +47,7 @@ public class MapFragmentView implements MapGesture.OnGestureListener {
                     OnEngineInitListener.Error error) {
                 if (error == OnEngineInitListener.Error.NONE) {
 // now the map is ready to be used
+                    m_mapFragment.getMapGesture().addOnGestureListener(new MyOnGestureListener());
                     m_map = m_mapFragment.getMap();
 
 
