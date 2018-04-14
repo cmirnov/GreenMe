@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.here.android.maps.appid"
             android:value="Su5yCpAbtAYfS5ekJpRu" />
@@ -36,29 +36,32 @@
             android:name="com.here.android.maps.license.key"
             android:value="ciDVKkpqPSuQqwbdTbkrgaJe7yhd/vW2RqlHrt1FsfxjZ/XBgodOPqvEQGhPYI85h3K+bYPXOuNR8Kh391sWCM2jOVEei/Tn6xXI9JTuzSE189422sTMQk7js+ME9Mnw4B0YJwGR3otxUfpBfMOrY/7f5KAMG7w7jJ91vTQTg9L0hzSMzn5ALu6HLNnRzXJtH5YuNreKNO1weSrOCPcGxGf+WizBrLiIYkGtmEcTtz0sdSRulr7+CaafiTlpH+mWXnxWCww4db64QCDIQbZbKMmbdmSHfUmJcyaHwnAJ73nrc3Yx+CNb0MyiaMEqCpXRNaVagEl4NPKexBv0g/8Hle2MRFE1NuUSaRVJthjmFC6jLFCjd0YLtBkTaMSYXJ8pD4CeAyx+7jPcWQ22BWg6y9TkuPwyR4JK1p8Nk2O5adXpIYQ7o7CSUVitDuE/mI1qp5cUgSamV5FNm3FCnaahA3Hoz68EnVUDJMr2Upp0zJSWwSV3nfcrwmxTJwCpWEP3pdAZ4ViuccnRKaL7gQHrDapaNUGIBk10IAC6voZoXduNSdAquCJ8SzLa2nAbfM4w+7JhyN0G26364+SuBG2c4C4sZTdQ/XA8qKc05r99AG51aoFdqioXvIquG1EeT9SpsMrL5RB/BbLA3bEUI81V1g80haJJa54OAPNCPrV29Vc=" />
 
-        <!--Developers should always provide custom values for each of {YOUR_LABEL_NAME} and {YOUR_INTENT_NAME}.
-        Do not reuse HERE SDK defaults.-->
+        <!--
+        Developers should always provide custom values for each of {YOUR_LABEL_NAME} and {YOUR_INTENT_NAME}.
+        Do not reuse HERE SDK defaults.
+        -->
         <meta-data
             android:name="INTENT_NAME"
             android:value="MAPINTENT" />
+
         <service
             android:name="com.here.android.mpa.service.MapService"
+            android:exported="true"
             android:label="HereMapService"
-            android:process="global.Here.Map.Service.v3"
-            android:exported="true" >
+            android:process="global.Here.Map.Service.v3">
             <intent-filter>
-                <action android:name="com.here.android.mpa.service.MapService.v3" >
-                </action>
+                <action android:name="com.here.android.mpa.service.MapService.v3"></action>
             </intent-filter>
         </service>
-        <!--<service-->
-            <!--android:name="com.here.android.mpa.service.MapService"-->
-            <!--android:label="MAPSERVISE"-->
-            <!--android:exported="false">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="{YOUR_INTENT_NAME}"></action>-->
-            <!--</intent-filter>-->
-        <!--</service>-->
+        <!-- <service -->
+        <!-- android:name="com.here.android.mpa.service.MapService" -->
+        <!-- android:label="MAPSERVISE" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="{YOUR_INTENT_NAME}"></action> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <activity android:name=".FlowerAnimation"></activity>
     </application>
 
 </manifest>
