@@ -1,6 +1,7 @@
 package com.example.kirill.greenme;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,13 +17,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
+
+import com.here.android.mpa.mapping.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
-    private MapFragmentView m_mapFragmentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +38,25 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                runMapActivity();
+            }
+            });
+
+        Button bPlay = (Button) findViewById(R.id.play);
+        bPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runMapActivity();
             }
         });
 
+        Button bRating = (Button) findViewById(R.id.rating);
+        bRating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                runRatingActivity();
+            }
+        });
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -50,6 +67,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         requestPermissions();
+    }
+
+    private void runRatingActivity() {
+
+    }
+    private void runMapActivity() {
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -105,7 +130,7 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this, "AFTER", Toast.LENGTH_LONG);
         // return if all permissions already granted
         if (isPermissionsGranted) {
-            createMapFragmentView();
+           // createMapFragmentView();
             return;
         }
 
@@ -124,11 +149,11 @@ public class MainActivity extends AppCompatActivity
      * Create map fragment view.
      * !!! Please note: the HERE SDK requires all permissions defined above to operate properly. !!!
      */
-    void createMapFragmentView() {
-        //Toast.makeText(this, "RUN", Toast.LENGTH_LONG);
-        m_mapFragmentView = new MapFragmentView(this);
-        //Toast.makeText(this, "END", Toast.LENGTH_LONG);
-    }
+//    void createMapFragmentView() {
+//        //Toast.makeText(this, "RUN", Toast.LENGTH_LONG);
+//        m_mapFragmentView = new MapFragmentView(this);
+//        //Toast.makeText(this, "END", Toast.LENGTH_LONG);
+//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

@@ -3,20 +3,28 @@ package com.example.kirill.greenme;
 import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.here.android.mpa.common.Image;
 import com.here.android.mpa.common.OnEngineInitListener;
+import com.here.android.mpa.common.ViewObject;
 import com.here.android.mpa.mapping.Map;
 import com.here.android.mpa.mapping.MapFragment;
+import com.here.android.mpa.mapping.MapGesture;
+import com.here.android.mpa.mapping.MapMarker;
+import com.here.android.mpa.mapping.MapObject;
 import com.nokia.maps.restrouting.GeoCoordinate;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.List;
 //import java.util.Map;
 
-public class MapFragmentView {
+public class MapFragmentView implements MapGesture.OnGestureListener {
     private MapFragment m_mapFragment;
     private Activity m_activity;
     private Map m_map;
@@ -24,6 +32,95 @@ public class MapFragmentView {
     public MapFragmentView(Activity activity) {
         m_activity = activity;
         initMapFragment();
+        addPoints();
+    }
+    @Override
+    public void onPanStart() {
+
+    }
+
+    @Override
+    public void onPanEnd() {
+
+    }
+
+    @Override
+    public void onMultiFingerManipulationStart() {
+
+    }
+
+    @Override
+    public void onMultiFingerManipulationEnd() {
+
+    }
+
+    @Override
+    public boolean onMapObjectsSelected(List<ViewObject> list) {
+        for (ViewObject viewObject : list) {
+            if (viewObject.getBaseType() == ViewObject.Type.USER_OBJECT) {
+                MapObject mapObject = (MapObject) viewObject;
+
+                if (mapObject.getType() == MapObject.Type.MARKER) {
+
+                    MapMarker window_marker = ((MapMarker) mapObject);
+
+                    Log.v("DONE", "DONE");
+
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onTapEvent(PointF pointF) {
+        return false;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(PointF pointF) {
+        return false;
+    }
+
+    @Override
+    public void onPinchLocked() {
+
+    }
+
+    @Override
+    public boolean onPinchZoomEvent(float v, PointF pointF) {
+        return false;
+    }
+
+    @Override
+    public void onRotateLocked() {
+
+    }
+
+    @Override
+    public boolean onRotateEvent(float v) {
+        return false;
+    }
+
+    @Override
+    public boolean onTiltEvent(float v) {
+        return false;
+    }
+
+    @Override
+    public boolean onLongPressEvent(PointF pointF) {
+        return false;
+    }
+
+    @Override
+    public void onLongPressRelease() {
+
+    }
+
+    @Override
+    public boolean onTwoFingerTapEvent(PointF pointF) {
+        return false;
     }
 
     private void initMapFragment() {
@@ -37,13 +134,36 @@ public class MapFragmentView {
                     OnEngineInitListener.Error error) {
                 if (error == OnEngineInitListener.Error.NONE) {
 // now the map is ready to be used
-                    Map map = m_mapFragment.getMap();
+                    m_map = m_mapFragment.getMap();
+
+
+                    MapMarker point = new MapMarker();
+
+//                    com.here.android.mpa.common.Image image = new Image();
+//                    try {
+//                        image.setImageResource(R.drawable.question);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+                    point.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.965899, 30.304310));
+//                    point.setIcon(image);
+                    while (m_map == null) {
+                        Log.v("ERROR", "MAP");
+                    }
+                    if (point == null) {
+                        Log.v("ERROR", "POINT");
+                    }
+                    m_map.addMapObject(point);
+//                    m_map = map;
+                    m_map.setCenter(new com.here.android.mpa.common.GeoCoordinate(59.965899, 30.304310), Map.Animation.NONE);
 // ...
+
                 } else {
                     System.out.println("ERROR: Cannot initialize MapFragment");
                 }
             }
         });
+
 
 //        // Set path of isolated disk cache
 //        String diskCacheRoot = Environment.getExternalStorageDirectory().getPath()
@@ -98,5 +218,8 @@ public class MapFragmentView {
 //                });
 //            }
 //        }
+    }
+
+    private void addPoints() {
     }
 }
