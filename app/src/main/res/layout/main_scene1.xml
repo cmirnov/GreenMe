@@ -1,0 +1,23 @@
+<FrameLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/transition_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dancing"
+        android:layout_gravity="center"
+        android:layout_marginRight="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="32sp"
+        android:textColor="@color/colorAccent"
+        android:text="The creation of a thousand forests is in one acorn"
+
+        />
+
+
+</FrameLayout>
