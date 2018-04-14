@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void runRatingActivity() {
+        Intent intent = new Intent(this, RatingList.class);
+        startActivity(intent);
 
     }
     private void runMapActivity() {
