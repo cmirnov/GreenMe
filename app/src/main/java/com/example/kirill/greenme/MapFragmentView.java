@@ -47,7 +47,7 @@ public class MapFragmentView {
                     OnEngineInitListener.Error error) {
                 if (error == OnEngineInitListener.Error.NONE) {
 // now the map is ready to be used
-                    m_mapFragment.getMapGesture().addOnGestureListener(new MyOnGestureListener());
+                    m_mapFragment.getMapGesture().addOnGestureListener(new MyOnGestureListener(m_activity));
                     m_map = m_mapFragment.getMap();
 
 
@@ -60,6 +60,7 @@ public class MapFragmentView {
 //                        e.printStackTrace();
 //                    }
                     point.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.965899, 30.304310));
+                    point.setDescription("plant_flower");
 //                    point.setIcon(image);
                     while (m_map == null) {
                         Log.v("ERROR", "MAP");

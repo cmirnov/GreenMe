@@ -1,5 +1,7 @@
 package com.example.kirill.greenme;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.util.Log;
 
@@ -11,6 +13,13 @@ import com.here.android.mpa.mapping.MapObject;
 import java.util.List;
 
 public class MyOnGestureListener implements MapGesture.OnGestureListener {
+
+    private Context context;
+
+    MyOnGestureListener(Context mContext) {
+        super();
+        context = mContext;
+    }
 
     @Override
     public void onPanStart() {
@@ -107,7 +116,8 @@ public class MyOnGestureListener implements MapGesture.OnGestureListener {
 
         }
         if (s.equals("plant_flower")) {
-
+            Intent intent = new Intent(context, FlowerAnimation.class);
+            context.startActivity(intent);
         }
         if (s.equals("water_tree")) {
 
