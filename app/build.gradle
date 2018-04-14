@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    compile(name:'HERE-sdk', ext:'aar')
+    compile(name: 'HERE-sdk', ext: 'aar')
     compile 'com.google.code.gson:gson:2.8.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
