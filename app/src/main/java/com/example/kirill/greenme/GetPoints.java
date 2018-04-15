@@ -1,5 +1,6 @@
 package com.example.kirill.greenme;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class GetPoints extends AppCompatActivity
@@ -24,6 +26,7 @@ public class GetPoints extends AppCompatActivity
         setContentView(R.layout.activity_get_points);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_get_points);
         setSupportActionBar(toolbar);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -104,4 +107,5 @@ public class GetPoints extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

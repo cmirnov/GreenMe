@@ -1,0 +1,10 @@
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item android:drawable="@drawable/mr6" android:duration="45"/>
+    <item android:drawable="@drawable/mr5" android:duration="45"/>
+    <item android:drawable="@drawable/mr4" android:duration="45"/>
+    <item android:drawable="@drawable/mr3" android:duration="45"/>
+    <item android:drawable="@drawable/mr2" android:duration="45"/>
+    <item android:drawable="@drawable/mr1" android:duration="45"/>
+</animation-list>
