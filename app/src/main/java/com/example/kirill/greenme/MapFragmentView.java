@@ -62,6 +62,12 @@ public class MapFragmentView {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    com.here.android.mpa.common.Image image2 = new Image();
+                    try {
+                        image2.setImageResource(R.drawable.tree);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     point.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.965899, 30.304310));
                     point.setDescription("plant_flower");
                     point.setIcon(image);
@@ -69,7 +75,7 @@ public class MapFragmentView {
                     m_map.addMapObject(point);
                     point2.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.943289, 30.302363));
                     point2.setDescription("plant_flower");
-                    point2.setIcon(image);
+                    point2.setIcon(image2);
 
                     m_map.addMapObject(point2);
                     point3.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.939899, 30.328933));
@@ -79,7 +85,7 @@ public class MapFragmentView {
                     m_map.addMapObject(point3);
                     point4.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.945166, 30.340778));
                     point4.setDescription("plant_flower");
-                    point4.setIcon(image);
+                    point4.setIcon(image2);
 
                     m_map.addMapObject(point4);
 //                    m_map = map;
