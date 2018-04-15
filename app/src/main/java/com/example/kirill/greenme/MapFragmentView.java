@@ -9,9 +9,12 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.here.android.mpa.common.GeoPosition;
 import com.here.android.mpa.common.Image;
 import com.here.android.mpa.common.OnEngineInitListener;
+import com.here.android.mpa.common.PositioningManager;
 import com.here.android.mpa.common.ViewObject;
+import com.here.android.mpa.guidance.NavigationManager;
 import com.here.android.mpa.mapping.Map;
 import com.here.android.mpa.mapping.MapFragment;
 import com.here.android.mpa.mapping.MapGesture;
@@ -21,6 +24,7 @@ import com.nokia.maps.restrouting.GeoCoordinate;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.util.List;
 //import java.util.Map;
 
@@ -28,7 +32,6 @@ public class MapFragmentView {
     private MapFragment m_mapFragment;
     private Activity m_activity;
     private Map m_map;
-
     public MapFragmentView(Activity activity) {
         m_activity = activity;
         initMapFragment();
@@ -49,7 +52,6 @@ public class MapFragmentView {
 // now the map is ready to be used
                     m_mapFragment.getMapGesture().addOnGestureListener(new MyOnGestureListener(m_activity));
                     m_map = m_mapFragment.getMap();
-
 
                     MapMarker point = new MapMarker();
                     MapMarker point2 = new MapMarker();
@@ -88,15 +90,30 @@ public class MapFragmentView {
                     point4.setIcon(image2);
 
                     m_map.addMapObject(point4);
+
+
+                    PositioningManager.getInstance().start(PositioningManager.LocationMethod.GPS_NETWORK);
+// Register positioning listener
+
 //                    m_map = map;
                     m_map.setCenter(new com.here.android.mpa.common.GeoCoordinate(59.965899, 30.304310), Map.Animation.NONE);
 // ...
+//                    PositioningManager.getInstance().addListener(
+//                            new WeakReference<PositioningManager.OnPositionChangedListener>(
+//                                    mapPositionHandler));
+
+                    m_map.getPositionIndicator().setVisible(true);
 
                 } else {
                     System.out.println("ERROR: Cannot initialize MapFragment");
                 }
             }
         });
+
+
+
+        // listen for positioning events
+
 
 
 //        // Set path of isolated disk cache
@@ -153,6 +170,25 @@ public class MapFragmentView {
 //            }
 //        }
     }
+        // listen for positioning events
+
+//
+//    private PositioningManager.OnPositionChangedListener mapPositionHandler = new PositioningManager.OnPositionChangedListener() {
+//        @Override
+//        public void onPositionUpdated(PositioningManager.LocationMethod method, GeoPosition position,
+//                                      boolean isMapMatched) {
+//            if (NavigationManager.getInstance().getMapUpdateMode().equals(NavigationManager
+//                    .MapUpdateMode.NONE))
+//                // use this updated position when map is not updated by RoadView.
+//                m_positionIndicatorFixed.setCoordinate(position.getCoordinate());
+//        }
+//
+//        @Override
+//        public void onPositionFixChanged(PositioningManager.LocationMethod method,
+//                                         PositioningManager.LocationStatus status) {
+//
+//        }
+//    };
 
     private void addPoints() {
     }
