@@ -52,6 +52,9 @@ public class MapFragmentView {
 
 
                     MapMarker point = new MapMarker();
+                    MapMarker point2 = new MapMarker();
+                    MapMarker point3 = new MapMarker();
+                    MapMarker point4 = new MapMarker();
 
 //                    com.here.android.mpa.common.Image image = new Image();
 //                    try {
@@ -62,13 +65,23 @@ public class MapFragmentView {
                     point.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.965899, 30.304310));
                     point.setDescription("plant_flower");
 //                    point.setIcon(image);
-                    while (m_map == null) {
-                        Log.v("ERROR", "MAP");
-                    }
-                    if (point == null) {
-                        Log.v("ERROR", "POINT");
-                    }
+
                     m_map.addMapObject(point);
+                    point2.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.943289, 30.302363));
+                    point2.setDescription("plant_flower");
+//                    point2.setIcon(image);
+
+                    m_map.addMapObject(point2);
+                    point3.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.939899, 30.328933));
+                    point3.setDescription("plant_flower");
+//                    point3.setIcon(image);
+
+                    m_map.addMapObject(point3);
+                    point4.setCoordinate(new com.here.android.mpa.common.GeoCoordinate(59.945166, 30.340778));
+                    point4.setDescription("plant_flower");
+//                    point4.setIcon(image);
+
+                    m_map.addMapObject(point4);
 //                    m_map = map;
                     m_map.setCenter(new com.here.android.mpa.common.GeoCoordinate(59.965899, 30.304310), Map.Animation.NONE);
 // ...

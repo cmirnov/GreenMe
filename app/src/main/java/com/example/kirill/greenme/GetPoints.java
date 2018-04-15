@@ -1,51 +1,26 @@
 package com.example.kirill.greenme;
 
-import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 
-public class FlowerGrowing extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    private AnimationDrawable mAnimationDrawable;
+public class GetPoints extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_flower_growing);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_flower_growing);
+        setContentView(R.layout.activity_get_points);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_get_points);
         setSupportActionBar(toolbar);
-
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setBackgroundResource(R.drawable.flowers_growing);
-
-        mAnimationDrawable = (AnimationDrawable) imageView.getBackground();
-//
-//        final Button btnStart = (Button) findViewById(R.id.buttonStart);
-//        btnStart.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                mAnimationDrawable.start();
-//            }
-//        });
-//
-        final FloatingActionButton btnDone = (FloatingActionButton) findViewById(R.id.TaskDone);
-        btnDone.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mAnimationDrawable.stop();
-                runGetPoints();
-                finish();
-            }
-        });
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -54,11 +29,13 @@ public class FlowerGrowing extends AppCompatActivity implements NavigationView.O
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
 
-    private void runGetPoints() {
-        Intent intent = new Intent(this, GetPoints.class);
-        startActivity(intent);
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                finish();
+                // code called after 5 seconds...
+            }
+        }, 5 * 1000);
     }
 
     @Override
@@ -116,12 +93,5 @@ public class FlowerGrowing extends AppCompatActivity implements NavigationView.O
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        mAnimationDrawable.start();
     }
 }

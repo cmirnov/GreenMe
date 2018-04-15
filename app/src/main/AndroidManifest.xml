@@ -76,7 +76,19 @@
         <activity
             android:name=".FlowerGrowing"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MapActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.FLOWER_GROWING" />
+
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".GetPoints"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".FlowerGrowing">
             <intent-filter>
                 <action android:name="android.intent.action.FLOWER_GROWING" />
 

@@ -25,14 +25,14 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.RatingAdap
         final TextView mName;
         final TextView mScore;
         final ImageView mUser;
-
+        //final ImageView mStar;
         public RatingAdapterViewHolder(View view) {
             super(view);
             mPosition = (TextView)view.findViewById(R.id.position);
             mName = (TextView) view.findViewById(R.id.name);
             mScore = view.findViewById(R.id.scores);
             mUser = view.findViewById(R.id.user);
-
+            //mStar = view.findViewById(R.id.star);
 
            // view.setOnClickListener(this);
         }
