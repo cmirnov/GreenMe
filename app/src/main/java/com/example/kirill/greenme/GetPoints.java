@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,7 +61,11 @@ public class GetPoints extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        //TextView view
+        TextView view = findViewById(R.id.MyPoints);
+        while (view == null) {
+            Log.v("ERROR", "ERROR");
+        }
+        view.setText(String.valueOf(MainActivity.MyPoints));
         return true;
     }
 
