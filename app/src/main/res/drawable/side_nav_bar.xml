@@ -2,8 +2,8 @@
     android:shape="rectangle">
     <gradient
         android:angle="135"
-        android:centerColor="#009688"
-        android:endColor="#00695C"
-        android:startColor="#4DB6AC"
+        android:centerColor="#2e8bf0ff"
+        android:endColor="#2e1dbcf5"
+        android:startColor="#2e1dbcf5"
         android:type="linear" />
 </shape>

@@ -16,8 +16,8 @@ import android.widget.TextView;
 public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.RatingAdapterViewHolder>{
 
     private String[] mData;
-    private String[] dataName = {"Ivan Ivanov", "Vasya Vasya", "Katya", "Stas","Stas","Stas","Stas","Stas","Stas"};
-    private String[] dataScore = {"123", "90", "234", "17","17","17","17","17","17"};
+    private String[] dataName = {"Ivan Ivanov", "Liza Vasina", "Kate Ivanova", "July Petrova","Stas Pipika","Masha Shira","Kim","Dima Hello","Dima Pool"};
+    private String[] dataScore = {"265", "143", "123", "110","90","88","83","76","75"};
     private String[] dataPosition = {"1", "2", "3" , "4", "5", "6", "7", "8", "9"};
     private Context mContext;
     public static class RatingAdapterViewHolder extends RecyclerView.ViewHolder {
@@ -71,7 +71,7 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.RatingAdap
             holder.mUser.setImageResource(R.drawable.face2);
         }
         if (position == 3) {
-            holder.mUser.setImageResource(R.drawable.face3);
+            holder.mUser.setImageResource(R.drawable.face2);
         }
         if (position == 4) {
             holder.mUser.setImageResource(R.drawable.face1);
