@@ -36,21 +36,21 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <TextView
-                android:textSize="25dp"
-                android:id="@+id/scores"
-                android:layout_marginLeft="100dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
             <ImageView
                 android:id="@+id/star"
 
                 android:layout_width="29dp"
                 android:layout_height="29dp"
+                android:layout_marginLeft="100dp"
                 android:layout_gravity="left"
                 android:cropToPadding="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/star"/>
+            <TextView
+                android:textSize="25dp"
+                android:id="@+id/scores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 
