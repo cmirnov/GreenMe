@@ -7,15 +7,18 @@
 
     <TextView
         android:id="@+id/transition_title"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/dancing"
-        android:layout_gravity="center"
-        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="32sp"
-        android:textColor="@color/colorAccent"
-        android:text="The creation of a thousand forests is in one acorn"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:text="The creation of a thousand forests is in one acorn..."
 
         />
 

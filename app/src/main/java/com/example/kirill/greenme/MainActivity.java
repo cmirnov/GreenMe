@@ -24,6 +24,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.here.android.mpa.mapping.Map;
@@ -40,15 +41,15 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runMapActivity();
-            }
-            });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                runMapActivity();
+//            }
+//            });
 
-        Button bPlay = (Button) findViewById(R.id.play);
+        TextView bPlay = (TextView) findViewById(R.id.play);
         bPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button bRating = (Button) findViewById(R.id.rating);
+        TextView bRating = (TextView) findViewById(R.id.rating);
         bRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
