@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity
 
     private final static int REQUEST_CODE_ASK_PERMISSIONS = 1;
 
+    public static int MyPoints = 300;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

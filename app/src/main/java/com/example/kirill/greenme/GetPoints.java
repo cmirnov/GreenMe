@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 public class GetPoints extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +32,12 @@ public class GetPoints extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        MainActivity.MyPoints += 5;
+//        int val = MainActivity.MyPoints;
+//        NavigationView navigationView1 = findViewById(R.id.nav_view);
+//        View headerView = navigationView.getHeaderView(0);
+//        TextView textView = navigationView.findViewById(R.id.MyPoints);
+//        textView.setText("23");
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 finish();
@@ -52,6 +60,7 @@ public class GetPoints extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        //TextView view
         return true;
     }
 
