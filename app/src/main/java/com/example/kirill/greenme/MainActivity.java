@@ -8,6 +8,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.transition.Fade;
+import android.transition.Scene;
+import android.transition.TransitionManager;
+import android.transition.TransitionSet;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,7 +21,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.here.android.mpa.mapping.Map;
@@ -34,15 +41,15 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runMapActivity();
-            }
-            });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                runMapActivity();
+//            }
+//            });
 
-        Button bPlay = (Button) findViewById(R.id.play);
+        TextView bPlay = (TextView) findViewById(R.id.play);
         bPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +57,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button bRating = (Button) findViewById(R.id.rating);
+        TextView bRating = (TextView) findViewById(R.id.rating);
         bRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,5 +187,23 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ViewGroup sceneRoot = (ViewGroup) findViewById(R.id.scene_root);
+
+        // You can also inflate a generate a Scene from a layout resource file.
+        final Scene scene2 = Scene.getSceneForLayout(sceneRoot, R.layout.main_scene1, this);
+        TransitionSet set = new TransitionSet();
+        set.addTransition(new Fade());
+        // выполняться они будут одновременно
+        set.setOrdering(TransitionSet.ORDERING_TOGETHER);
+        // уставим свою длительность анимации
+        set.setDuration(3000);
+        // и изменим Interpolator
+        set.setInterpolator(new AccelerateInterpolator());
+        TransitionManager.go(scene2, set);
     }
 }

@@ -9,20 +9,60 @@
     tools:showIn="@layout/app_bar_main"
     android:background="@drawable/main_background">
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <Button
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="PLAY"-->
+            <!--android:id="@+id/play"/>-->
+        <!--<Button-->
+            <!--android:id="@+id/rating"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="RATING"/>-->
+        <FrameLayout
+            android:id="@+id/scene_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <include layout="@layout/main_scene0"/>
+
+        </FrameLayout>
+        <TextView
+            android:id="@+id/play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PLAY"
-            android:id="@+id/play"/>
-        <Button
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:text="Play"
+
+            />
+        <TextView
             android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RATING"/>
-    </LinearLayout>
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:text="Rating"
+
+            />
+
+
+    </TableLayout>
 
     <!--<TextView-->
         <!--android:layout_width="wrap_content"-->

@@ -30,6 +30,23 @@
         android:layout_marginRight="24dp"
         android:id="@+id/TaskDone"/>
 
+    <TextView
+        android:id="@+id/transition_title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="40dp"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:text="Your task is to plant a daisy"
+
+        />
+
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content"-->
