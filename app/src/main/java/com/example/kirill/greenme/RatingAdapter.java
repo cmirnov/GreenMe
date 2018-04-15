@@ -16,9 +16,9 @@ import android.widget.TextView;
 public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.RatingAdapterViewHolder>{
 
     private String[] mData;
-    private String[] dataName = {"Ivan Ivanov", "Vasya Vasya", "Katya", "Stas"};
-    private String[] dataScore = {"123", "90", "234", "17"};
-    private String[] dataPosition = {"1", "2", "3" , "4"};
+    private String[] dataName = {"Ivan Ivanov", "Vasya Vasya", "Katya", "Stas","Stas","Stas","Stas","Stas","Stas"};
+    private String[] dataScore = {"123", "90", "234", "17","17","17","17","17","17"};
+    private String[] dataPosition = {"1", "2", "3" , "4", "5", "6", "7", "8", "9"};
     private Context mContext;
     public static class RatingAdapterViewHolder extends RecyclerView.ViewHolder {
         final TextView mPosition;
@@ -76,12 +76,24 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingAdapter.RatingAdap
         if (position == 4) {
             holder.mUser.setImageResource(R.drawable.face1);
         }
+        if (position == 5) {
+            holder.mUser.setImageResource(R.drawable.face2);
+        }
+        if (position == 6) {
+            holder.mUser.setImageResource(R.drawable.face3);
+        }
+        if (position == 7) {
+            holder.mUser.setImageResource(R.drawable.face1);
+        }
+        if (position == 8) {
+            holder.mUser.setImageResource(R.drawable.face2);
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return 4;
+        return 8;
     }
 
 
