@@ -12,6 +12,7 @@ import android.transition.Fade;
 import android.transition.Scene;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        TextView textView = findViewById(R.id.MyPoints);
+        textView.setText(String.valueOf(MyPoints));
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -102,6 +105,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
+
+        
         return true;
     }
 
@@ -113,6 +119,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+
+        TextView textView = findViewById(R.id.MyPoints);
+        textView.setText(String.valueOf(MyPoints));
         if (id == R.id.action_settings) {
             return true;
         }
@@ -138,7 +147,6 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        Toast.makeText(this, "AFTER", Toast.LENGTH_LONG);
         // return if all permissions already granted
         if (isPermissionsGranted) {
            // createMapFragmentView();
@@ -170,6 +178,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        TextView textView = findViewById(R.id.MyPoints);
+        textView.setText(String.valueOf(MyPoints));
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {

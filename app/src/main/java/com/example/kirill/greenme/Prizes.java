@@ -20,7 +20,8 @@ public class Prizes extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prizes);
-        Toast.makeText(this, "PRIZES", Toast.LENGTH_LONG).show();
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_prizes);
         setSupportActionBar(toolbar);
 
